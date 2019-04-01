@@ -1,0 +1,39 @@
+.edit-btn svg, .back-to-home svg{
+    width: 30px;
+    cursor: pointer;
+}
+.back-to-home svg{
+    transform: rotate(180deg)
+}
+.container-info{
+    width: 70%;
+    margin: 0 auto;
+    border: 1px solid grey;
+    padding: 30px;
+    border-radius: 15px;
+}
+.input-section input{
+    width: 70%;
+    color: grey;
+}
+
+label{
+    margin-right: 15px;
+}
+.info-edit{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.edit-btn{
+    width: 30px;
+    margin-left: auto;
+    margin-bottom: 40px;
+}
+.edit-btn:hover, .active-btn{
+    color: blue;
+}
+.back-to-home{
+    margin-top: 10px;
+    margin-left: 5px;
+}

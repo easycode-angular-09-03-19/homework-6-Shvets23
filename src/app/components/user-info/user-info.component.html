@@ -1,0 +1,39 @@
+<div class="back-to-home" (click)="backToHome()">
+  <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="sign-out-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-sign-out-alt fa-w-16 fa-3x"><path fill="currentColor" d="M160 217.1c0-8.8 7.2-16 16-16h144v-93.9c0-7.1 8.6-10.7 13.6-5.7l141.6 143.1c6.3 6.3 6.3 16.4 0 22.7L333.6 410.4c-5 5-13.6 1.5-13.6-5.7v-93.9H176c-8.8 0-16-7.2-16-16v-77.7m-32 0v77.7c0 26.5 21.5 48 48 48h112v61.9c0 35.5 43 53.5 68.2 28.3l141.7-143c18.8-18.8 18.8-49.2 0-68L356.2 78.9c-25.1-25.1-68.2-7.3-68.2 28.3v61.9H176c-26.5 0-48 21.6-48 48zM0 112v288c0 26.5 21.5 48 48 48h132c6.6 0 12-5.4 12-12v-8c0-6.6-5.4-12-12-12H48c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16h132c6.6 0 12-5.4 12-12v-8c0-6.6-5.4-12-12-12H48C21.5 64 0 85.5 0 112z" class=""></path></svg>
+</div>
+<div class="container-info" >
+  <div class="edit-btn" (click)="editStart()" [class.active-btn]="edit">
+  <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="edit" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-edit fa-w-18 fa-3x"><path fill="currentColor" d="M417.8 315.5l20-20c3.8-3.8 10.2-1.1 10.2 4.2V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h292.3c5.3 0 8 6.5 4.2 10.2l-20 20c-1.1 1.1-2.7 1.8-4.2 1.8H48c-8.8 0-16 7.2-16 16v352c0 8.8 7.2 16 16 16h352c8.8 0 16-7.2 16-16V319.7c0-1.6.6-3.1 1.8-4.2zm145.9-191.2L251.2 436.8l-99.9 11.1c-13.4 1.5-24.7-9.8-23.2-23.2l11.1-99.9L451.7 12.3c16.4-16.4 43-16.4 59.4 0l52.6 52.6c16.4 16.4 16.4 43 0 59.4zm-93.6 48.4L403.4 106 169.8 339.5l-8.3 75.1 75.1-8.3 233.5-233.6zm71-85.2l-52.6-52.6c-3.8-3.8-10.2-4-14.1 0L426 83.3l66.7 66.7 48.4-48.4c3.9-3.8 3.9-10.2 0-14.1z" class=""></path></svg>
+</div>
+<form #editInfoForm="ngForm">
+  <div class="input-section">
+    <div class="row">
+        <div class="alert alert-danger error-mes" *ngIf="infoTitle.invalid || infoPhone.invalid || infoEmail.invalid || infoUsername.invalid || infoWebsite.invalid">Enter correct data</div>
+      <div class="col-6 info-edit">
+        <label for="">Name:</label>
+        <input type="text" [ngModel]="user?.name" (ngModelChange)="editUser.name = $event" name="name" [readOnly]="!edit" minlength="4" required #infoTitle="ngModel" >        
+      </div>
+      <div class="col-6 info-edit">
+        <label for="">Phone:</label>
+        <input type="text" [ngModel]="user?.phone" (ngModelChange)="editUser.phone = $event" name="phone" [readOnly]="!edit" minlength="7" required #infoPhone="ngModel" >        
+      </div>
+      <div class="col-6 info-edit">
+        <label for="">Email:</label>
+        <input email type="text" [ngModel]="user?.email" (ngModelChange)="editUser.email = $event" name="email" [readOnly]="!edit" minlength="7" required
+        #infoEmail="ngModel">        
+      </div>
+      <div class="col-6 info-edit">
+        <label for="">Username:</label>
+        <input type="text" [ngModel]="user?.username" (ngModelChange)="editUser.username = $event" name="username" [readOnly]="!edit" minlength="4" required #infoUsername="ngModel">        
+      </div>
+      <div class="col-6 info-edit">
+        <label for="">Website:</label>
+        <input type="text" [ngModel]="user?.website" (ngModelChange)="editUser.website = $event" name="website" [readOnly]="!edit" minlength="4" required #infoWebsite="ngModel">
+      </div>
+    </div>
+  </div>
+  
+  <button *ngIf="edit" (click)="editSubmit()" class="btn btn-success"  [disabled]="infoTitle.invalid || infoPhone.invalid || infoEmail.invalid || infoUsername.invalid || infoWebsite.invalid">Submit</button>
+</form>
+</div>
+

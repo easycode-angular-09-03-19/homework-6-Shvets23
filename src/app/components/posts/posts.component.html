@@ -1,0 +1,9 @@
+<div class="post-container" *ngFor="let item of posts">
+    <div class="card">
+        <h5 class="card-header">post by  {{ name }}</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">{{ item.body }}</p>
+        </div>
+      </div>
+</div>
